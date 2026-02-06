@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Material Visual Network Test</title>
+  <style>
+    body { font-family: sans-serif; margin: 40px; }
+    h1 { color: #1565C0; }
+    input, button { margin: 10px 0; padding: 6px; }
+    img { max-width: 200px; display: block; margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <h1>Test Material Visual Network API</h1>
+  <form id="uploadForm">
+    <input type="file" id="file" accept="image/*" required />
+    <button type="submit">Upload</button>
+  </form>
+
+  <div id="results"></div>
+
+  <script>
+    const form = document.getElementById("uploadForm");
+    const results = document.getElementById("results");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const file = document.getElementById("file").files[0];
+      const data = new FormData();
+      data.append("file", file);
+
+      results.textContent = "Uploading...";
+
+      const res = await fetch("/match", { method: "POST", body: data });
+      const json = await res.json();
+
+      results.innerHTML = `<pre>${JSON.stringify(json, null, 2)}</pre>`;
+    });
+  </script>
+</body>
+</html>

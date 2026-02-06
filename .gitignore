@@ -1,0 +1,63 @@
+# ---- OS / Editor junk ----
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+.eggs/
+dist/
+build/
+pip-wheel-metadata/
+
+# Virtual envs
+.venv/
+venv/
+ENV/
+env/
+
+# Python tooling
+.mypy_cache/
+.pytest_cache/
+.pyre/
+.tox/
+.coverage
+.coverage.*
+htmlcov/
+
+# Local config / secrets
+.env
+.env.*
+!.env.example
+
+# ---- Node / Frontend ----
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.parcel-cache/
+.npm/
+.cache/
+
+# Build artifacts
+dist/
+build/
+*.log
+
+# ---- Data / Artifacts ----
+# Keep data/ tracked (CSV, NPY, etc.) so the backend can run.
+# Do NOT track images; they are too large for GitHub pack limits.
+images/
+images_backup/
+tmp/
+outputs/
+
+# ---- Notebooks temp ----
+.ipynb_checkpoints/
