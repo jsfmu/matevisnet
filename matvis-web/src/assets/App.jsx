@@ -1,7 +1,10 @@
 import { useState } from "react";
 
 const envApiBase = import.meta.env.VITE_API_BASE_URL?.trim();
-const API_BASE = envApiBase || "http://127.0.0.1:8000";
+const API_BASE =
+  import.meta.env.PROD
+    ? (envApiBase || "")
+    : (envApiBase || "http://127.0.0.1:8000");
 
 function App() {
   const [sku, setSku] = useState("");
@@ -47,7 +50,7 @@ function App() {
           <input
             value={sku}
             onChange={(e) => setSku(e.target.value)}
-            placeholder="101156321"
+            placeholder="000000000"
             style={{ marginLeft: 8, padding: 4 }}
           />
         </label>

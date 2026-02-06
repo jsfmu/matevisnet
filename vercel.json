@@ -1,0 +1,16 @@
+{
+  "buildCommand": "cd matvis-web && npm ci && npm run build",
+  "outputDirectory": "matvis-web/dist",
+  "installCommand": "pip install -r requirements.txt && cd matvis-web && npm ci",
+  "framework": null,
+  "rewrites": [
+    { "source": "/similar-by-sku", "destination": "/api/index" },
+    { "source": "/images/:path*", "destination": "/api/index" },
+    { "source": "/health", "destination": "/api/index" }
+  ],
+  "functions": {
+    "api/index.py": {
+      "memory": 1024
+    }
+  }
+}
