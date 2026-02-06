@@ -1,8 +1,11 @@
 {
   "buildCommand": "cd matvis-web && npm ci && npm run build",
   "outputDirectory": "matvis-web/dist",
-  "installCommand": "pip install -r requirements.txt && cd matvis-web && npm ci",
+  "installCommand": "python -m venv .venv && .venv/bin/pip install -r requirements.txt && cd matvis-web && npm ci",
   "framework": null,
+  "env": {
+    "PYTHONPATH": ".venv/lib/python3.12/site-packages"
+  },
   "rewrites": [
     { "source": "/similar-by-sku", "destination": "/api/index" },
     { "source": "/images/:path*", "destination": "/api/index" },
